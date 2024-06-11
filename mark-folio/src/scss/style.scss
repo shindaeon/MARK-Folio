@@ -5,30 +5,50 @@ $tertiary: #736638;
 $text-color: #192919;
 $bg-color: #ECF9C5;
 
+@font-face {
+    font-family: Familjen;
+    src: url('../assets/fonts/FamiljenGrotesk-Regular.ttf');
+}
+
 
 body{
-    background-color: $bg-color;
-    color: $text-color;
+    font-family: Familjen;
+    background-color: $text-color;
+    color: $bg-color;
 }
 
-nav a{
+div#navlinks{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+div#navlinks a{
     color: $text-color;
     text-decoration: none;
+    padding-left: 15px;
 }
 
-nav a:hover{
+div#navlinks a:hover{
     color: $secondary;
+}
+
+div#navlinks a.active{
+    color: $bg-color;
 }
 
 #navbar{
     background-color: $primary;
     color: $text-color;
-    padding: 10px;
+    padding: 1.3rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 #main{
-    background-color: $bg-color;
-    color: $text-color;
+    background-color: $text-color;
+    color: $bg-color;
     padding: 10px;
 }
 

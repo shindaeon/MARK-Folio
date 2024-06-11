@@ -1,20 +1,31 @@
-import Router from '../routes.js';
+import Router from "../routes.js";
 
-export function navBar(){
-  const router = new Router(); // Create a new Router instance
-  const navbar = document.querySelector('#navbar');
-  navbar.innerHTML = `
-    <a href="/" data-link>Home</a>
-    <a href="/about" data-link>About</a>
-    <a href="/works" data-link>Works</a>
-    <a href="/commission" data-link>Commission</a>
-  `;
+export function navBar() {
+  const router = new Router();
+  const navbarlinks = document.querySelector("#navlinks");
+  navbarlinks.innerHTML = `<a href="/" data-link>Home</a><a href="/about" data-link>About</a><a href="/works" data-link>Works</a><a href="/commission" data-link>Commission</a>`;
 
-  navbar.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
+  navbar.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
       e.preventDefault();
-      const url = e.target.getAttribute('href');
-      router.navigate(url); // Call navigate on the router instance
+      const url = e.target.getAttribute("href");
+      router.navigate(url);
+      e.target.classList.add("active");
+      e.target.parentElement.childNodes.forEach((link) => {
+        if (link.getAttribute("href") !== e.target.getAttribute("href")) {
+          link.classList.remove("active");
+        }
+      });
     }
   });
+
+  document.onload = (() => {
+    const path = window.location.pathname;
+    const links = navbar.querySelectorAll("a");
+    links.forEach((link) => {
+      if (link.getAttribute("href") === path) {
+        link.classList.add("active");
+      }
+    });
+  })();
 }

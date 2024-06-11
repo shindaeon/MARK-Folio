@@ -1,0 +1,39 @@
+@import "bootstrap/scss/bootstrap";
+$primary: #4B9E45;
+$secondary: #C7CF60;
+$tertiary: #736638;
+$text-color: #192919;
+$bg-color: #ECF9C5;
+
+
+body{
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+nav a{
+    color: $text-color;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: $secondary;
+}
+
+#navbar{
+    background-color: $primary;
+    color: $text-color;
+    padding: 10px;
+}
+
+#main{
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 10px;
+}
+
+#footer{
+    background-color: $text-color;
+    color: $bg-color;
+    padding: 10px;
+}

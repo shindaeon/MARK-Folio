@@ -1,20 +1,79 @@
 @import "bootstrap/scss/bootstrap";
-$primary: #4B9E45;
-$secondary: #C7CF60;
-$tertiary: #736638;
-$text-color: #192919;
-$bg-color: #ECF9C5;
+
+//hide scrollbar
+*::-webkit-scrollbar {
+    display: none;
+}
+//hide scrollbar firefox, disable text select
+*{
+    scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+$lima: (
+    50: #f5fbf2,
+    100: #e8f8e0,
+    200: #d1efc3,
+    300: #abe095,
+    400: #7cca5e,
+    500: #5fb93c, //main
+    600: #468f2a,
+    700: #397124,
+    800: #305a21,
+    900: #284a1d,
+    950: #12280b,
+);
+
+$shark:(
+    50: #f4f6f7,
+    100: #e2e8eb,
+    200: #c8d5d9,
+    300: #a1b6bf,
+    400: #73909d,
+    500: #587582,
+    600: #4c626e,
+    700: #42525c,
+    800: #3b464f,
+    900: #353d44,
+    950: #22292f, //main
+);
+
+@each $name, $color in $lima {
+    .bg-lima-#{$name} {
+        background-color: $color;
+    }
+    .text-lima-#{$name} {
+        color: $color;
+    }
+}
+
+@each $name, $color in $shark {
+    .bg-shark-#{$name} {
+        background-color: $color;
+    }
+    .text-shark-#{$name} {
+        color: $color;
+    }
+}
 
 @font-face {
     font-family: Familjen;
-    src: url('../assets/fonts/FamiljenGrotesk-Regular.ttf');
+    src: url(../assets/fonts/FamiljenGrotesk-Regular.ttf);
 }
 
+@font-face {
+    font-family: Familjen Bold;
+    src: url(../assets/fonts/FamiljenGrotesk-Bold.ttf);
+}
+
+@font-face {
+    font-family: Familjen Semi Bold;
+    src: url(../assets/fonts/FamiljenGrotesk-SemiBold.ttf)
+};
 
 body{
     font-family: Familjen;
-    background-color: $text-color;
-    color: $bg-color;
 }
 
 div#navlinks{
@@ -24,36 +83,30 @@ div#navlinks{
 }
 
 div#navlinks a{
-    color: $text-color;
+    color: map-get($shark, 300);
     text-decoration: none;
-    padding-left: 15px;
+    padding-left: 30px;
 }
 
 div#navlinks a:hover{
-    color: $secondary;
+    color: map-get($lima, 300);
 }
 
 div#navlinks a.active{
-    color: $bg-color;
+    color: map-get($lima, 300);
 }
 
 #navbar{
-    background-color: $primary;
-    color: $text-color;
+    background-color: map-get($shark, 800);
+    color: map-get($shark, 300);
     padding: 1.3rem;
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-#main{
-    background-color: $text-color;
-    color: $bg-color;
-    padding: 10px;
-}
-
 #footer{
-    background-color: $text-color;
-    color: $bg-color;
+    background-color: #0d1114;
+    color: map-get($lima, 400);
     padding: 10px;
 }

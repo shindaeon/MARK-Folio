@@ -4,7 +4,7 @@ class Router {
       "/": "src/views/home.html",
       "/about": "src/views/about.html",
       "/works": "src/views/works.html",
-      "/commission": "src/views/commission.html",
+      "/contact": "src/views/contact.html",
     };
     this.notFoundView = "src/views/404.html";
     this.mainview = document.getElementById("main");

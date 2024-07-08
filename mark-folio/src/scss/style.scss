@@ -5,10 +5,12 @@
     display: none;
 }
 //hide scrollbar firefox, disable text select
+//global configs
 *{
     scrollbar-width: none;
     user-select: none;
     -webkit-user-select: none;
+    box-sizing: border-box;
 }
 
 $lima: (
@@ -72,7 +74,21 @@ $shark:(
     src: url(../assets/fonts/FamiljenGrotesk-SemiBold.ttf)
 };
 
+h1, h2, h3{
+    font-family: "Familjen Bold";
+}
+
+p, a, span, li{
+    font-family: Familjen;
+}
+
+h4, h5, h6{
+    font-family: 'Familjen Semi Bold';
+}
+
 body{
+    background-color: map-get($shark, 950);
+    color: map-get($lima, 400);
     font-family: Familjen;
 }
 
@@ -83,7 +99,7 @@ div#navlinks{
 }
 
 div#navlinks a{
-    color: map-get($shark, 300);
+    color: map-get($shark, 400);
     text-decoration: none;
     padding-left: 30px;
 }
@@ -109,4 +125,38 @@ div#navlinks a.active{
     background-color: #0d1114;
     color: map-get($lima, 400);
     padding: 10px;
+}
+
+button.b-primary.btn, button.btn{
+    background-color: map-get($lima, 500);
+    color: map-get($lima, 50);
+    border: none;
+    border-radius: 0px;
+    padding: 0.85rem 1.5rem;
+    transform: skew(-7deg);
+    cursor: pointer;
+}
+
+button span.b-text{
+    font-family: "Familjen Semi Bold";
+    transform: skew(7deg);
+}
+
+button.b-secondary.btn{
+    background-color: map-get($shark, 400);
+    color: map-get($shark, 50);
+}
+
+figure.c-card{
+    margin: 10px;
+    width: 300px;
+    aspect-ratio: 4/3;
+    transform: skew(3deg);
+}
+
+figure.c-card img.c-card-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: skew(-3deg);
 }

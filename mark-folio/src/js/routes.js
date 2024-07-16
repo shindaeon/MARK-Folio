@@ -6,6 +6,10 @@ class Router {
       "/works": "src/views/works.html",
       "/contact": "src/views/contact.html",
     };
+    this.scripts = {
+      "/about": "src/js/about.js",
+      "/works": "src/js/works.js",
+    };
     this.notFoundView = "src/views/404.html";
     this.mainview = document.getElementById("main");
   }
@@ -15,6 +19,17 @@ class Router {
       .then((response) => response.text())
       .then((html) => {
         this.mainview.innerHTML = html;
+      })
+      .then(() => {
+        const path = window.location.pathname;
+        if (this.scripts[path]) {
+          // Check if the script already exists in the document
+          if (!document.querySelector(`script[src="${this.scripts[path]}"]`)) {
+            const script = document.createElement("script");
+            script.src = this.scripts[path];
+            document.body.appendChild(script);
+          }
+        }
       })
       .catch(() => {
         fetch(this.notFoundView)

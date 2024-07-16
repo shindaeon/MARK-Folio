@@ -1,4 +1,6 @@
 @import "bootstrap/scss/bootstrap";
+@import "../../node_modules/@flaticon/flaticon-uicons/css/brands/all.css";
+@import "../../node_modules/@flaticon/flaticon-uicons/css/bold/straight.css";
 
 //hide scrollbar
 *::-webkit-scrollbar {
@@ -74,6 +76,10 @@ $shark:(
     src: url(../assets/fonts/FamiljenGrotesk-SemiBold.ttf)
 };
 
+a{
+    text-decoration: none;
+}
+
 h1, h2, h3{
     font-family: "Familjen Bold";
 }
@@ -137,7 +143,17 @@ button.b-primary.btn, button.btn{
     cursor: pointer;
 }
 
-button span.b-text{
+button.b-primary.btn:hover, button.btn:hover{
+    background-color: map-get($lima, 600);
+}
+
+button.b-primary.btn:active, button.btn:active{
+    background-color: map-get($lima, 700);
+    color: map-get($shark, 100);
+}
+
+button span.b-text, button i.fi{
+    display: block;
     font-family: "Familjen Semi Bold";
     transform: skew(7deg);
 }
@@ -147,16 +163,19 @@ button.b-secondary.btn{
     color: map-get($shark, 50);
 }
 
-figure.c-card{
-    margin: 10px;
-    width: 300px;
-    aspect-ratio: 4/3;
-    transform: skew(3deg);
+button.b-secondary.btn:hover{
+    background-color: map-get($shark, 500);
+}
+
+button.b-secondary.btn:active{
+    background-color: map-get($shark, 600);
+    color: map-get($lima, 300);
 }
 
 figure.c-card img.c-card-img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: skew(-3deg);
+    aspect-ratio: 1/1;
+    clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
 }

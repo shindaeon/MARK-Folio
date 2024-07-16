@@ -3,7 +3,7 @@ import marklogo from "../assets/mark.svg"
 import { navBar } from "./components/navbar";
 import Router from "./routes.js";
 import * as bootstrap from 'bootstrap'
-import textSlide from "./logic/text-slide";
+import { buttonConf } from "./components/buttonConfig.js";
 
 document.querySelector("#app").innerHTML = `
   <nav id="navbar" class="position-sticky fixed-top">
@@ -19,5 +19,6 @@ document.querySelector("#app").innerHTML = `
 navBar();
 const router = new Router();
 router.start();
-
-textSlide();
+setTimeout(() => {
+  buttonConf();
+}, 500);

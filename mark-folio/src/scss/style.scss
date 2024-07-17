@@ -41,6 +41,7 @@ $shark:(
     800: #3b464f,
     900: #353d44,
     950: #22292f, //main
+    1000: #0d1114,
 );
 
 @each $name, $color in $lima {
@@ -127,10 +128,20 @@ div#navlinks a.active{
     width: 100%;
 }
 
-#footer{
-    background-color: #0d1114;
+footer{
+    background-color: map-get($shark, 1000);
     color: map-get($lima, 400);
     padding: 10px;
+    margin: 0;
+}
+
+footer a{
+    color: map-get($lima, 400);
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: map-get($lima, 300);
 }
 
 button.b-primary.btn, button.btn{

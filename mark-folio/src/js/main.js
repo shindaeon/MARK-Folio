@@ -3,7 +3,7 @@ import marklogo from "../assets/mark.svg"
 import { navBar } from "./components/navbar";
 import Router from "./routes.js";
 import * as bootstrap from 'bootstrap'
-import { buttonConf } from "./components/buttonConfig.js";
+import { Footer } from "./components/footer.js";
 
 document.querySelector("#app").innerHTML = `
   <nav id="navbar" class="position-sticky fixed-top">
@@ -13,12 +13,10 @@ document.querySelector("#app").innerHTML = `
     <div id="navlinks" class=""></div>
   </nav>
   <div id="main"></div>
-  <footer id="footer">Footer</footer>
+  <footer></footer>
 `;
 
 navBar();
+Footer();
 const router = new Router();
 router.start();
-setTimeout(() => {
-  buttonConf();
-}, 500);

@@ -1,20 +1,21 @@
 class Router {
   constructor() {
     this.routes = {
-      "/": "src/views/home.html",
-      "/about": "src/views/about.html",
-      "/works": "src/views/works.html",
-      "/contact": "src/views/contact.html",
+      "/": "views/home.html",
+      "/about": "views/about.html",
+      "/works": "views/works.html",
+      "/contact": "views/contact.html",
     };
     this.scripts = {
-      "/about": "src/js/about.js",
-      "/works": "src/js/works.js",
+      "/about": "js/about.js",
+      "/works": "js/works.js",
     };
-    this.notFoundView = "src/views/404.html";
+    this.notFoundView = "views/404.html";
     this.mainview = document.getElementById("main");
   }
 
   loadView(url) {
+    console.log(url);
     fetch(url)
       .then((response) => response.text())
       .then((html) => {

@@ -23,7 +23,7 @@ export function Footer() {
                   <ul class="list-unstyled ps-2">
                         <li><a href="/">Home</a></li>
                         <li><a href="/works">Works</a></li>
-                        <li><a href="/commission">Commission</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         <li><a href="/about">About</a></li>
                   </ul>
             </div>

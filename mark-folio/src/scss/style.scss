@@ -106,7 +106,7 @@ div#navlinks{
 }
 
 div#navlinks a{
-    color: map-get($shark, 400);
+    color: map-get($shark, 200);
     text-decoration: none;
     padding-left: 30px;
 }
@@ -146,7 +146,7 @@ footer a:hover{
 
 button.b-primary.btn, button.btn{
     background-color: map-get($lima, 500);
-    color: map-get($lima, 50);
+    color: map-get($shark, 950);
     border: none;
     border-radius: 0px;
     padding: 0.85rem 1.5rem;
@@ -156,11 +156,12 @@ button.b-primary.btn, button.btn{
 
 button.b-primary.btn:hover, button.btn:hover{
     background-color: map-get($lima, 600);
+    color: map-get($lima, 50);
 }
 
 button.b-primary.btn:active, button.btn:active{
     background-color: map-get($lima, 700);
-    color: map-get($shark, 100);
+    color: map-get($lima, 50);
 }
 
 button span.b-text, button i.fi{
@@ -170,17 +171,18 @@ button span.b-text, button i.fi{
 }
 
 button.b-secondary.btn{
+    background-color: map-get($shark, 300);
+    color: map-get($shark, 950);
+}
+
+button.b-secondary.btn:hover{
     background-color: map-get($shark, 400);
     color: map-get($shark, 50);
 }
 
-button.b-secondary.btn:hover{
-    background-color: map-get($shark, 500);
-}
-
 button.b-secondary.btn:active{
-    background-color: map-get($shark, 600);
-    color: map-get($lima, 300);
+    background-color: map-get($shark, 500);
+    color: map-get($shark, 50);
 }
 
 figure.c-card img.c-card-img{
@@ -189,4 +191,12 @@ figure.c-card img.c-card-img{
     object-fit: cover;
     aspect-ratio: 1/1;
     clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
+}
+
+.contact-links li a{
+    color: map-get($lima, 200);
+
+    :hover{
+        color: map-get($lima, 100);
+    }
 }

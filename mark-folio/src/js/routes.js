@@ -1,44 +1,27 @@
+import { homePage } from "./home";
+import { aboutPage } from "./about";
+import { worksPage } from "./works";
+import { contactPage } from "./contact";
+import { notFoundPage } from "./404";
+
 class Router {
   constructor() {
     this.routes = {
-      "/": "views/home.html",
-      "/about": "views/about.html",
-      "/works": "views/works.html",
-      "/contact": "views/contact.html",
+      "/": homePage,
+      "/about": aboutPage,
+      "/works": worksPage,
+      "/contact": contactPage,
     };
     this.scripts = {
       "/about": "js/about.js",
       "/works": "js/works.js",
     };
-    this.notFoundView = "views/404.html";
+    this.notFoundView = notFoundPage;
     this.mainview = document.getElementById("main");
   }
 
-  loadView(url) {
-    console.log(url);
-    fetch(url)
-      .then((response) => response.text())
-      .then((html) => {
-        this.mainview.innerHTML = html;
-      })
-      .then(() => {
-        const path = window.location.pathname;
-        if (this.scripts[path]) {
-          // Check if the script already exists in the document
-          if (!document.querySelector(`script[src="${this.scripts[path]}"]`)) {
-            const script = document.createElement("script");
-            script.src = this.scripts[path];
-            document.body.appendChild(script);
-          }
-        }
-      })
-      .catch(() => {
-        fetch(this.notFoundView)
-          .then((response) => response.text())
-          .then((html) => {
-            this.mainview.innerHTML = html;
-          });
-      });
+  loadView(viewHTML) {
+    this.mainview.innerHTML = viewHTML;
   }
 
   navigate(pathname) {

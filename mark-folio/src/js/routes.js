@@ -22,6 +22,15 @@ class Router {
 
   loadView(viewHTML) {
     this.mainview.innerHTML = viewHTML;
+    const path = window.location.pathname;
+    if (this.scripts[path]) {
+      // Check if the script already exists in the document
+      if (!document.querySelector(`script[src="${this.scripts[path]}"]`)) {
+        const script = document.createElement("script");
+        script.src = this.scripts[path];
+        document.body.appendChild(script);
+      }
+    }
   }
 
   navigate(pathname) {

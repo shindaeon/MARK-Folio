@@ -44,6 +44,7 @@ $shark:(
     1000: #0d1114,
 );
 
+
 @each $name, $color in $lima {
     .bg-lima-#{$name} {
         background-color: $color;
@@ -108,7 +109,7 @@ div#navlinks{
 div#navlinks a{
     color: map-get($shark, 200);
     text-decoration: none;
-    padding-left: 30px;
+    margin-left: 30px;
 }
 
 div#navlinks a:hover{
@@ -117,6 +118,7 @@ div#navlinks a:hover{
 
 div#navlinks a.active{
     color: map-get($lima, 300);
+    border-bottom: 3px solid map-get($lima, 300);
 }
 
 #navbar{
@@ -128,24 +130,28 @@ div#navlinks a.active{
     width: 100%;
 }
 
-footer{
-    background-color: map-get($shark, 1000);
-    color: map-get($lima, 400);
-    padding: 10px;
-    margin: 0;
-}
-
-footer a{
-    color: map-get($lima, 400);
-    text-decoration: none;
-}
-
-footer a:hover{
-    color: map-get($lima, 300);
-}
+@mixin aspect-ratio() {
+    position: relative;
+    width: 100%;
+    padding-top: calc(100% / var(--aspect-ratio)); /* aspect ratio from CSS variable */
+    overflow: hidden;
+  
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .aspect-ratio-box {
+    @include aspect-ratio();
+  }
 
 button.b-primary.btn, button.btn{
-    background-color: map-get($lima, 500);
+    background-color: map-get($lima, 400);
     color: map-get($shark, 950);
     border: none;
     border-radius: 0px;
@@ -191,6 +197,22 @@ figure.c-card img.c-card-img{
     object-fit: cover;
     aspect-ratio: 1/1;
     clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
+}
+
+footer{
+    background-color: map-get($shark, 1000);
+    color: map-get($lima, 400);
+    padding: 10px;
+    margin: 0;
+}
+
+footer a{
+    color: map-get($lima, 400);
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: map-get($lima, 300);
 }
 
 .contact-links li a{

@@ -49,7 +49,15 @@ export const contactPage = `
                   </div>
             </div>
       </div>
-      <div class="col-sm-12 col-md-6 p-5"><img src="img/3tri.webp" width="500" class="img-fluid d-block justify-content-center" alt="Digital Fan Art of Yechan (LUCY)"></div>
+      <div class="col-sm-12 col-md-6 p-5">
+            <div class="aspect-ratio-box" style="--aspect-ratio: 1;">
+                  <img 
+                        srcset="img/works/small/3.webp 480w, img/works/medium/3.webp 576w"
+                        src="img/3.webp" 
+                        class="img-fluid d-block justify-content-center" 
+                        alt="Digital Fan Art of Yechan (LUCY)">
+            </div>
+      </div>
 </div>
 </section>
 `;

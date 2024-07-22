@@ -5,12 +5,22 @@ import Router from "./routes.js";
 import * as bootstrap from "bootstrap";
 
 document.querySelector("#app").innerHTML = `
-  <nav id="navbar" class="position-sticky fixed-top">
-    <div id="navbrand">
-      <img src="${marklogo}" class="img-fluid" width="35" alt="MARK Logo" />
-    </div>
-    <div id="navlinks" class="links"></div>
-  </nav>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-shark-900">
+      <div class="container-fluid">
+            <a class="navbar-brand m-2" href="/" aria-label="Link to Home Page">
+                  <img src="${marklogo}" class="img-fluid" width="30" alt="MARK Logo" />
+            </a>
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+                  <i class="fi fi-bs-menu-burger"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav
+                        ms-auto" id="navlinks">
+                  </ul>
+            </div>
+      </div>
+      </nav>
   <div id="main"></div>
   <footer>
   <div class="container-fluid p-5">
@@ -62,4 +72,3 @@ document.querySelector("#app").innerHTML = `
 const router = new Router();
 router.start();
 navBar();
-

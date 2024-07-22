@@ -6,9 +6,10 @@
 *::-webkit-scrollbar {
     display: none;
 }
+
 //hide scrollbar firefox, disable text select
 //global configs
-*{
+* {
     scrollbar-width: none;
     user-select: none;
     -webkit-user-select: none;
@@ -21,7 +22,8 @@ $lima: (
     200: #d1efc3,
     300: #abe095,
     400: #7cca5e,
-    500: #5fb93c, //main
+    500: #5fb93c,
+    //main
     600: #468f2a,
     700: #397124,
     800: #305a21,
@@ -29,7 +31,7 @@ $lima: (
     950: #12280b,
 );
 
-$shark:(
+$shark: (
     50: #f4f6f7,
     100: #e2e8eb,
     200: #c8d5d9,
@@ -40,7 +42,8 @@ $shark:(
     700: #42525c,
     800: #3b464f,
     900: #353d44,
-    950: #22292f, //main
+    950: #22292f,
+    //main
     1000: #0d1114,
 );
 
@@ -49,6 +52,7 @@ $shark:(
     .bg-lima-#{$name} {
         background-color: $color;
     }
+
     .text-lima-#{$name} {
         color: $color;
     }
@@ -58,6 +62,7 @@ $shark:(
     .bg-shark-#{$name} {
         background-color: $color;
     }
+
     .text-shark-#{$name} {
         color: $color;
     }
@@ -76,52 +81,69 @@ $shark:(
 @font-face {
     font-family: Familjen Semi Bold;
     src: url(../fonts/FamiljenGrotesk-SemiBold.ttf)
-};
+}
 
-a{
+;
+
+a {
     text-decoration: none;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
     font-family: "Familjen Bold";
 }
 
-p, a, span, li{
+p,
+a,
+span,
+li {
     font-family: Familjen;
 }
 
-h4, h5, h6{
+h4,
+h5,
+h6 {
     font-family: 'Familjen Semi Bold';
 }
 
-body{
+body {
     background-color: map-get($shark, 950);
     color: map-get($lima, 400);
     font-family: Familjen;
 }
 
-div#navlinks{
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-content: center;
+}
+
+div#navlinks {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
 
-div#navlinks a{
+.navbar-nav .nav-item .nav-link {
     color: map-get($shark, 200);
     text-decoration: none;
     margin-left: 30px;
 }
 
-div#navlinks a:hover{
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
     color: map-get($lima, 300);
 }
 
-div#navlinks a.active{
-    color: map-get($lima, 300);
+.navbar-nav .nav-item .nav-link.active {
     border-bottom: 3px solid map-get($lima, 300);
 }
 
-#navbar{
+#navbar {
     background-color: map-get($shark, 800);
     color: map-get($shark, 300);
     padding: 1.3rem;
@@ -133,24 +155,25 @@ div#navlinks a.active{
 @mixin aspect-ratio() {
     position: relative;
     width: 100%;
-    padding-top: calc(100% / var(--aspect-ratio)); /* aspect ratio from CSS variable */
+    padding-top: calc(100% / var(--aspect-ratio));
     overflow: hidden;
-  
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  
-  .aspect-ratio-box {
-    @include aspect-ratio();
-  }
 
-button.b-primary.btn, button.btn{
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.aspect-ratio-box {
+    @include aspect-ratio();
+}
+
+button.b-primary.btn,
+button.btn, .navbar-toggler {
     background-color: map-get($lima, 400);
     color: map-get($shark, 950);
     border: none;
@@ -160,38 +183,41 @@ button.b-primary.btn, button.btn{
     cursor: pointer;
 }
 
-button.b-primary.btn:hover, button.btn:hover{
+button.b-primary.btn:hover,
+button.btn:hover, .navbar-toggler:hover {
     background-color: map-get($lima, 600);
     color: map-get($lima, 50);
 }
 
-button.b-primary.btn:active, button.btn:active{
+button.b-primary.btn:active,
+button.btn:active, .navbar-toggler:focus{
     background-color: map-get($lima, 700);
     color: map-get($lima, 50);
 }
 
-button span.b-text, button i.fi{
+button span.b-text,
+button i.fi {
     display: block;
     font-family: "Familjen Semi Bold";
     transform: skew(7deg);
 }
 
-button.b-secondary.btn{
+button.b-secondary.btn {
     background-color: map-get($shark, 300);
     color: map-get($shark, 950);
 }
 
-button.b-secondary.btn:hover{
+button.b-secondary.btn:hover {
     background-color: map-get($shark, 400);
     color: map-get($shark, 50);
 }
 
-button.b-secondary.btn:active{
+button.b-secondary.btn:active {
     background-color: map-get($shark, 500);
     color: map-get($shark, 50);
 }
 
-figure.c-card img.c-card-img{
+figure.c-card img.c-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -199,26 +225,26 @@ figure.c-card img.c-card-img{
     clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
 }
 
-footer{
+footer {
     background-color: map-get($shark, 1000);
     color: map-get($lima, 400);
     padding: 10px;
     margin: 0;
 }
 
-footer a{
+footer a {
     color: map-get($lima, 400);
     text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
     color: map-get($lima, 300);
 }
 
-.contact-links li a{
+.contact-links li a {
     color: map-get($lima, 200);
 
-    :hover{
+    :hover {
         color: map-get($lima, 100);
     }
 }

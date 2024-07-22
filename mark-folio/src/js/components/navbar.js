@@ -2,8 +2,21 @@ import Router from "../routes.js";
 
 export function navBar() {
   const router = new Router();
-  const navbarlinks = document.querySelector("#navlinks");
-  navbarlinks.innerHTML = `<a href="/" aria-label="Link to Home Page" data-link>Home</a><a href="/about" aria-label="Link to About Page" data-link>About</a><a href="/works" aria-label="Link to the Artist's Works Page" data-link>Works</a><a href="/contact" aria-label="Link to the Artist's Contact Details Page" data-link>Contact</a>`;
+  const navbar = document.querySelector(".navbar-nav");
+  navbar.innerHTML = `
+    <li class="nav-item">
+      <a class="nav-link" href="/" aria-label="Link to Home Page" data-link>Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/about" aria-label="Link to About Page" data-link>About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/works" aria-label="Link to the Artist's Works Page" data-link>Works</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contact" aria-label="Link to the Artist's Contact Details Page" data-link>Contact</a>
+    </li>
+  `;
 
   navbar.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
@@ -11,8 +24,10 @@ export function navBar() {
       const url = e.target.getAttribute("href");
       router.navigate(url);
       e.target.classList.add("active");
-      e.target.parentElement.childNodes.forEach((link) => {
-        if (link.getAttribute("href") !== e.target.getAttribute("href")) {
+      window.scrollTo(0, 0);
+      Array.from(navbar.children).forEach((item) => {
+        const link = item.querySelector("a");
+        if (link.getAttribute("href") !== url) {
           link.classList.remove("active");
         }
       });
